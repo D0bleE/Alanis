@@ -1,0 +1,7 @@
+Coloca aquí tus fotos en formato JPG o PNG y conserva estos nombres:
+- imagen1.jpg: TU foto de niño (aparece al romperse el huevo).
+- imagen2.jpg: foto de Alanis.
+- imagen3.jpg: otra foto de Alanis.
+- imagen4.jpg: otra foto de Alanis.
+
+Si usas PNG, cambia también la extensión en index.html.
