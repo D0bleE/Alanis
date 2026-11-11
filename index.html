@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff0f4">
+  <meta name="description" content="Una pequeña sorpresa del 11:11 para Alanis.">
+  <title>11:11 para Alanis 💗</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <span class="brand">hecho con cariño ♡</span>
+    <button class="music-btn" id="musicBtn" type="button" aria-pressed="false">♫ Activar música</button>
+    <audio id="bgMusic" src="musica/cancion.mpeg" loop preload="none"></audio>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="eyebrow">11 · 11 · un deseo especial</div>
+      <h1>Alanis, hoy el universo<br><span>tiene algo para ti.</span></h1>
+      <p class="intro">Dicen que a las 11:11 puedes pedir un deseo.<br>Así que cierra los ojitos, piensa bonito y descubre el tuyo.</p>
+
+      <button class="egg-button" id="eggButton" type="button" aria-label="Romper el huevo sorpresa">
+        <span class="sparkle sparkle-one">✦</span>
+        <span class="egg-shell" aria-hidden="true">
+          <i class="shell-top"></i><i class="shell-bottom"></i><b class="yolk"></b>
+        </span>
+        <span class="tap-hint">tócame para pedir tu deseo</span>
+        <span class="sparkle sparkle-two">✧</span>
+      </button>
+
+      <div class="reveal" id="reveal" aria-live="polite" hidden>
+        <div class="crack">✨ ¡PLOP! ✨</div>
+        <img src="imagenes/imagen1.jpg" alt="Tu pollito sorpresa" class="my-photo">
+        <h2>¡Aquí llegué yo! 🐣</h2>
+        <p>Pediste un deseo y el universo te mandó<br><strong>un pollito medio defectuoso, pero que te ama mucho.</strong></p>
+        <span class="tiny-note">(No acepta devoluciones. Ya salió del huevo.)</span>
+      </div>
+      <div class="scroll-note">hay más cositas para ti <span>↓</span></div>
+    </section>
+
+    <section class="memories section-card" id="recuerdos">
+      <div class="section-kicker">pequeños momentos ♡</div>
+      <h2>Una galería de alguien muy especial</h2>
+      <p class="section-copy">Porque hasta en tus versiones más pequeñitas ya eras una ternurita.</p>
+      <div class="photo-grid">
+        <figure><img src="imagenes/imagen2.jpg" alt="Alanis, recuerdo 1"><figcaption>Una mini tú 💗</figcaption></figure>
+        <figure><img src="imagenes/imagen3.jpg" alt="Alanis, recuerdo 2"><figcaption>Demasiada ternura</figcaption></figure>
+        <figure><img src="imagenes/imagen4.jpg" alt="Alanis, recuerdo 3"><figcaption>Mi persona favorita</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="adele section-card" id="modo-adele">
+      <div class="section-kicker">un modo especial 🎤</div>
+      <h2>Modo Adela</h2>
+      <p class="section-copy"> Cantala con la música activada uwu </p>
+      <button class="soft-button" id="adeleBtn" type="button">Activar modo Adela</button>
+      <p class="adele-message" id="adeleMessage" hidden>🎶 Every single night
+I pray that my tits are sitting' right <br><span>Alanis, si esto fuera un concierto, yo sería el que grita tu nombre desde la primera fila.</span></p>
+    </section>
+
+    <section class="wish section-card">
+      <div class="section-kicker">antes de irte ✨</div>
+      <h2>Un último deseo</h2>
+      <p>Ojalá la vida te regale muchísimas razones para sonreír. Y si algún día te falta una, aquí tienes a este sujeto dispuesto a hacerte cosquillas </p>
+      <div class="signature"><strong>Espero ser algún día tu deseo del 11:11 ❤️</strong></div>
+    </section>
+  </main>
+
+  <footer>11:11 · hecho especialmente para Alanis <span>♡</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>

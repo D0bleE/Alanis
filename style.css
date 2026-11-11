@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+:root {
+  --pink: #f8dce6;
+  --pink-light: #fff0f4;
+  --pink-deep: #d98da7;
+  --red: #e9a0a3;
+  --red-dark: #b95e6c;
+  --ink: #634650;
+  --muted: #987985;
+  --paper: #fffaf9;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; color: var(--ink); font-family: 'DM Sans', sans-serif;
+  background: radial-gradient(circle at 10% 5%, #ffe8ef 0, transparent 28rem),
+              linear-gradient(180deg, #fff7f8, #fffaf9 55%, #fff1f2);
+}
+.topbar {
+  width: min(1040px, calc(100% - 36px)); margin: 0 auto; padding: 22px 0;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.brand { color: var(--muted); font-size: .85rem; letter-spacing: .06em; }
+button { font: inherit; cursor: pointer; }
+.music-btn, .soft-button {
+  border: 1px solid #edc4d0; color: var(--red-dark); background: #fff8fa;
+  border-radius: 999px; padding: 11px 18px; transition: .2s ease;
+}
+.music-btn:hover, .soft-button:hover { transform: translateY(-2px); background: white; }
+.hero {
+  min-height: 650px; padding: 72px 20px 45px; text-align: center;
+  display: flex; flex-direction: column; align-items: center;
+}
+.eyebrow, .section-kicker {
+  color: var(--red-dark); text-transform: uppercase; letter-spacing: .17em;
+  font-size: .72rem; font-weight: 700;
+}
+h1, h2 { font-family: 'Playfair Display', Georgia, serif; }
+h1 { font-size: clamp(2.5rem, 7vw, 4.6rem); line-height: 1.08; margin: 18px 0; font-weight: 700; }
+h1 span { color: var(--pink-deep); }
+.intro { color: var(--muted); line-height: 1.8; margin: 0; }
+.egg-button {
+  position: relative; margin: 35px auto 15px; width: 210px; height: 210px;
+  border: 0; border-radius: 50%; background: #fff; box-shadow: 0 15px 45px #d78fa522;
+  display: grid; place-items: center; transition: transform .2s ease;
+}
+.egg-button:hover { transform: translateY(-4px) rotate(-2deg); }
+.egg-shell {
+  position: relative; display: block; width: 112px; height: 145px;
+  border-radius: 49% 49% 46% 46% / 42% 42% 58% 58%;
+  background: linear-gradient(115deg, #fffefa 5%, #f7eee5 48%, #e8d9cd 100%);
+  box-shadow: inset -9px -5px 14px #c7b3a344, inset 8px 5px 13px #ffffff,
+              0 12px 16px #8d667022;
+  overflow: hidden;
+}
+.egg-shell i { position: absolute; left: 0; width: 100%; height: 53%; background: inherit; }
+.shell-top { top: 0; clip-path: polygon(0 0,100% 0,100% 80%,88% 75%,78% 86%,67% 74%,55% 88%,43% 74%,30% 86%,18% 73%,0 82%); }
+/* Grieta principal del huevo */
+.egg-shell::before {
+  content: "";
+  position: absolute;
+  z-index: 5;
+  top: 43%;
+  left: 0;
+  width: 100%;
+  height: 15%;
+  background: #9b7658;
+  clip-path: polygon(
+    0 35%, 18% 35%, 27% 0%, 36% 70%,
+    47% 25%, 58% 90%, 69% 20%,
+    81% 65%, 100% 45%,
+    100% 57%, 81% 78%, 69% 35%,
+    58% 100%, 47% 40%, 36% 85%,
+    27% 15%, 18% 48%, 0 48%
+  );
+  opacity: 0;
+}
+
+/* Grietas pequeñas */
+.egg-shell::after {
+  content: "";
+  position: absolute;
+  z-index: 6;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 30%;
+  background: #9b7658;
+  clip-path: polygon(
+    45% 0, 53% 0, 48% 45%,
+    75% 65%, 70% 75%, 46% 55%,
+    25% 100%, 18% 94%, 40% 48%
+  );
+  opacity: 0;
+}
+
+/* Las grietas aparecen antes de abrirse */
+.egg-button.cracking .egg-shell::before {
+  animation: crack-appear .2s .15s ease-out forwards;
+}
+
+.egg-button.cracking .egg-shell::after {
+  animation: crack-appear .2s .22s ease-out forwards;
+}
+
+@keyframes crack-appear {
+  from {
+    opacity: 0;
+    transform: scale(.7);
+  }
+  to {
+    opacity: .9;
+    transform: scale(1);
+  }
+}
+.shell-bottom { bottom: 0; clip-path: polygon(0 18%,18% 27%,30% 14%,43% 26%,55% 12%,67% 26%,78% 14%,88% 25%,100% 20%,100% 100%,0 100%); }
+.yolk { position: absolute; width: 31px; height: 31px; border-radius: 50%; background: #f1c66d; left: 41px; top: 58px; opacity: 0; transform: scale(.6); }
+.egg-button.cracking { animation: egg-shake .13s ease-in-out 4; }
+.egg-button.cracking .shell-top { animation: shell-top-break .75s ease-in forwards; }
+.egg-button.cracking .shell-bottom { animation: shell-bottom-break .75s ease-in forwards; }
+.egg-button.cracking .sparkle { opacity: 0; }
+@keyframes egg-shake { 0%,100% { transform: rotate(0); } 25% { transform: rotate(-5deg); } 75% { transform: rotate(5deg); } }
+@keyframes shell-top-break { to { transform: translate(-20px,-52px) rotate(-28deg); opacity: .0; } }
+@keyframes shell-bottom-break { to { transform: translate(17px,55px) rotate(25deg); opacity: .0; } }
+@keyframes yolk-pop { to { opacity: 1; transform: scale(1); } }
+.tap-hint { position: absolute; bottom: 19px; color: var(--muted); font-size: .72rem; }
+.sparkle { position: absolute; color: var(--red); font-size: 1.6rem; }
+.sparkle-one { top: 22px; left: 28px; }.sparkle-two { right: 25px; bottom: 42px; }
+.scroll-note { color: #b28b98; font-size: .8rem; margin-top: 32px; }
+.scroll-note span { display: block; font-size: 1.3rem; }
+.reveal { width: min(440px, 100%); margin: 18px auto 0; padding: 24px; border-radius: 28px; background: #fff; box-shadow: 0 12px 40px #d78fa522; animation: appear .5s ease both; }
+.reveal[hidden], .adele-message[hidden] { display: none; }
+.crack { color: var(--red-dark); font-weight: 700; margin-bottom: 12px; }
+.my-photo { width: 170px; height: 170px; object-fit: cover; border-radius: 50%; border: 6px solid var(--pink-light); }
+.reveal h2 { margin: 12px 0 6px; font-size: 1.8rem; }
+.reveal p { line-height: 1.65; color: var(--muted); }
+.tiny-note { font-size: .75rem; color: #b58d9a; }
+.section-card { width: min(900px, calc(100% - 36px)); margin: 30px auto; padding: clamp(25px, 5vw, 48px); text-align: center; border: 1px solid #f4dfe5; border-radius: 28px; background: #ffffffb8; }
+.section-card h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 12px 0; }
+.section-copy { color: var(--muted); line-height: 1.7; max-width: 570px; margin: 0 auto 25px; }
+.photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+figure { margin: 0; padding: 10px 10px 14px; background: white; border-radius: 16px; box-shadow: 0 6px 22px #b66c8020; transform: rotate(-1deg); }
+figure:nth-child(2) { transform: rotate(1.5deg); }
+figure img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 10px; background: var(--pink-light); }
+figcaption { padding-top: 10px; color: var(--muted); font-size: .8rem; }
+.adele { background: linear-gradient(135deg, #fff7f8, #fff0f2); }
+.adele-message { margin: 22px auto 0; color: var(--red-dark); line-height: 1.8; font-family: 'Playfair Display', serif; font-size: 1.2rem; }
+.adele-message span { font-family: 'DM Sans', sans-serif; color: var(--muted); font-size: .9rem; }
+.wish { max-width: 720px; }
+.wish > p { color: var(--muted); line-height: 1.9; }
+.signature { margin-top: 24px; color: var(--muted); line-height: 1.8; }
+.signature strong { color: var(--red-dark); }
+footer { text-align: center; color: #b28b98; padding: 30px 15px 40px; font-size: .8rem; }
+footer span { color: var(--red-dark); }
+body.adele-mode { background: linear-gradient(180deg, #fff0f2, #f9dce5, #fff8f8); }
+@keyframes appear { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 620px) {
+  .topbar { width: calc(100% - 28px); }
+  .brand { font-size: .72rem; }
+  .music-btn { padding: 9px 13px; font-size: .8rem; }
+  .hero { min-height: 610px; padding-top: 60px; }
+  .photo-grid { grid-template-columns: 1fr 1fr; }
+  .photo-grid figure:last-child { grid-column: 1 / -1; width: 70%; justify-self: center; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
